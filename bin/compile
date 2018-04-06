@@ -51,8 +51,8 @@ fi
 # Source each of the colon-delimited files
 IFS=':' files=($buildpack_run)
 for i in ${!files[@]}; do
-  IFS=' ' splits=($files[$i])
-  echo "Sourcing ${splits[0]} ${splits}" | sed 's/^/-----> /'
-  source "${splits[0]} ${splits}"
+  splits=($files[$i])
+  echo "Sourcing ${splits[@]}" | sed 's/^/-----> /'
+  source "${splits[@]}"
 done
 
