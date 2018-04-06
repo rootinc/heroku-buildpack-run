@@ -52,7 +52,8 @@ fi
 IFS=':' files=($buildpack_run)
 for i in ${!files[@]}; do
   IFS=' ' splits=($files[$i])
-  echo "Sourcing ${splits[0]} ${splits[0]}" | sed 's/^/-----> /'
-  source "${splits[0]} ${splits[0]}"
+  echo ${splits}
+  echo "Sourcing ${splits[0]} ${splits[1]}" | sed 's/^/-----> /'
+  source "${splits[0]} ${splits[1]}"
 done
 
